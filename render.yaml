@@ -1,9 +1,7 @@
 services:
   - type: web
-    name: tv-webhook-bot
+    name: tv_webhook_bot
     env: python
+    plan: free
     buildCommand: ""
-    startCommand: python webhook_server.py
-    envVars:
-      - key: PORT
-        value: 10000
+    startCommand: gunicorn webhook_server:app
